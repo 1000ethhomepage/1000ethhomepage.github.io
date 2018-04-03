@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>1000 Ξ FAQ page</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css"> 
+    <link href="styles.css" rel="stylesheet">
+
+      
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="OTEHP" ng-controller="MainController" id="MainControllerTag">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container d-flex justify-content-between">
+        <a class="navbar-brand" href="/">
+          <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          1000 Ξ
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" ng-href="/FAQ">FAQ</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link " href="/me"><i class="fas fa-user"></i></a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading"><span class="text-muted">FAQ</span></h1>
+      </div>
+    </section>
+
+    <main role="main">
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">What's the goal of this website?</h1>
+        <p class="lead text-muted">This project is an introductive tutorial to building real decentralized applications (DApps) on <a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum</a>. Ethereum is a <strong>decentralized platform that runs smart contracts</strong>, applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third-party interference.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">Why do I need to care about Ethereum, what does it offer?</h1>
+        <p class="lead text-muted">With Smart contracts, Ethereum allow the management of value, possessions, and multiple other things. This project is powered by a Smart Contract that keeps track of parcels, and allow owners to exchange them, modify them, or sell them.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">Is this website real or just a simulation?</h1>
+        <p class="lead text-muted">The website is in every point <strong class="font-weight-bold">real</strong>. The pixels parcels present on the home page belong to their owner or were not acquired yet. If you own a parcel, it's yours, and <strong class="font-weight-bold">nobody can take it from you</strong>. If this website was ever taken down, your parcel will still be present on the main Ethereum blockchain, and you can access to it on etherscan for example, or you can clone the github repository of this website and set it up again on your own! You'll have access to same Smart Contract that keep track of your and the others parcels.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">What do I need to acquire a parcel?</h1>
+        <p class="lead text-muted">A computer running Chrome or Firefox, and have the MetaMask plugin installed on them. MetaMask is a digital wallet that allow the management of Ether, the crypto-currency of Ethereum. The Ether will allow you to acquire a parcel.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">How do I install MetaMask?</h1>
+        <p class="lead text-muted">In order to acquire, modify, or exchange parcels, you’ll need to install MetaMask on your Chrome or Firefox browser and load it up with ether.</p>
+        <div style="text-align: center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/Vj9ztSdKSPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">How do I get Ether?</h1>
+        <p class="lead text-muted">If you are a U.S. citizen, you can buy ether in MetaMask.</p>
+        <p class="lead text-muted">For everyone else, you will need to purchase ether from an exchange. The easiest way is using Coinbase and then transferring the ether from your Coinbase wallet to your MetaMask wallet.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">What's a token?</h1>
+        <p class="lead text-muted">A token is the representation of an asset in a Smart Contract. In the case of this project, it's a non-fungible token, which means that each token is different from another one, because each parcel is unique, and have unique characteristics.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">Is this all?</h1>
+        <p class="lead text-muted">This FAQ, like this whole website, are still under construction. Be sure to come back a bit later when more content is added!</p>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="" onclick="scrollToTop()">Back to top</a>
+        </p>
+        <p>The 1000 Ξ homepage</p>
+        <p>Want to know more? <a href="/FAQ">Visit the FAQ</a> or contact me <a  href="mailto:info@1000ethhomepage.com">by mail</a>!</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <!-- Bootstrap 4 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Angular JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+
+    <!-- IPFS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+
+    <!-- Big Number -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/6.0.0/bignumber.min.js"></script>
+
+    <!-- Color picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+
+    <!-- Smart contract interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@0.20.6/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/truffle-contract@3.0.4/dist/truffle-contract.min.js"></script>
+    <script src="./JS/angularApp.js"></script>
+    <script src="./JS/app.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  </body>
+</html>

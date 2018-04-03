@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>1000 Ξ homepage</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css"> 
+    <link href="styles.css" rel="stylesheet">
+
+      
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="OTEHP" ng-controller="MainController" id="MainControllerTag">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container d-flex justify-content-between">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          1000 Ξ
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" ng-href="/FAQ">FAQ</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link " href="/me"><i class="fas fa-user"></i></a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <div class="album py-5 bg-white">
+      <div id="removeAfterLoad" class="text-center"><h1>Loading..</h1></div>
+      <canvas id="pixelsCanvas" width="1000" height="1000" style="padding-left: 0;
+      padding-right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      width: 1000px;">
+
+      </canvas>
+      </div>
+
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">What am I seeing?</h1>
+        <p class="lead text-muted">All the parcels above are tokens tracked by a smart contract living on the Ethereum blockchain. Each token represents 100 pixels, displayed as 10 x 10 pixels parcels. Using an instance of Metamask connected to the Ethereum main network, you can acquire a parcel and change the colors of its pixels, its description, or its target link.</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">What's the point of it?</h1>
+        <p class="lead text-muted">This project is first of all a tutorial destined to show newcomers how to develop a real MVP on the Ethereum blockchain. Secondly, it's meant to show the difference between a classic, centralized application, and a decentralized one. Want to learn more? Head to the <a href="/FAQ">FAQ</a>!</p>
+        </div>
+      </div>
+
+      <div class="album py-5 bg-white largerPadding">
+        <div class="container text-center maxWidth60">
+        <h1 class="largerH1s">How can I participate?</h1>
+        <p class="lead text-muted">Start by clicking on a parcel in the top of this page, and a modal will show up, offering you to acquire the parcel. After acquiring the parcel, you'll be offered to change its colors, description, or link. Make sure that  <a href="https://metamask.io/" target="_blank">MetaMask</a>  is connected to the main network, and an account is unlocked!</p>
+        <button onclick="scrollToTop()" type="button" class="btn btn-outline-primary btn-lg">Head to top!</button>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="" onclick="scrollToTop()">Back to top</a>
+        </p>
+        <p>The 1000 Ξ homepage</p>
+        <p>Want to know more? <a href="/FAQ">Visit the FAQ</a> or contact me <a  href="mailto:info@1000ethhomepage.com">by mail</a>!</p>
+      </div>
+    </footer>
+
+    <!-- Right, bottom side infos -->
+    <div id="pixelInfos" class="card" ng-if="infosPopUp" ng-cloak>
+      <div class="card-header">
+      <span ng-if="tokenInfos[cHOTID] != null">
+        <span>Owner: <img ng-src="https://robohash.org/{{tokenInfos[cHOTID].owner}}.png?set=set3&size=36x36" /><span class="text-muted">{{ tokenInfos[cHOTID].owner }}</span></span>
+      </span>
+      <span ng-if="tokenInfos[cHOTID] == null">Available parcel</span>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Parcel number: <strong>{{cHOTID}}</strong></h5>
+          <span ng-if="tokenInfos[cHOTID] != null && tokenInfos[cHOTID].description.length > 0">Description: "<span class="text-muted">{{tokenInfos[cHOTID].description}}</span>"<br></span>
+          <span ng-if="tokenInfos[cHOTID] != null && tokenInfos[cHOTID].link.length > 0">Link: "<span class="text-muted">{{tokenInfos[cHOTID].link}}</span>"</span>
+
+        <p class="card-text">Click to show more details!</p>
+      </div>
+    </div>
+
+    <!-- On click on a parcel, the modal that shows up -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="tokenInfosModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Parcel number: <strong>{{cHOTID_clicked}}</strong></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Doesn't belong to anyone -->
+            <p ng-if="tokenInfos[cHOTID_clicked] == null">
+              <span class="text-success">This parcel don't belong to anyone, you can acquire it!</span>
+                           
+            </p>
+            <!-- Belongs to someone -->
+            <p ng-if="tokenInfos[cHOTID_clicked] != null">
+              <span>Owner: <img ng-src="https://robohash.org/{{tokenInfos[cHOTID_clicked].owner}}.png?set=set3&size=36x36" /><span class="text-muted">{{ tokenInfos[cHOTID_clicked].owner }}</span>
+              </span> 
+            </p>
+            <!-- Belongs to the current user -->
+            <p ng-show="tokenInfos[cHOTID_clicked] != null && tokenInfos[cHOTID_clicked].owner == currentAccount" class="text-center">
+
+              <input type='text' id="flat" />
+
+              <canvas id="bigPixelsCanvas" width="300" height="300" style="padding-left: 0;
+              padding-right: 0;
+              margin-left: auto;
+              margin-right: auto;
+              display: block;
+              width: 300px;">
+
+              </canvas>
+
+              <br>
+
+              <button type="button" class="btn btn-outline-primary btn-lg" ng-click="saveColors()">Save pixels colors</button>
+
+              <br>
+
+              <form ng-show="tokenInfos[cHOTID_clicked] != null && tokenInfos[cHOTID_clicked].owner == currentAccount">
+
+                <hr>
+
+                <div class="form-group text-center">
+                  <!--<label style="font-size: 2em">Description</label>-->
+                  <input class="form-control" type="text" name="parcelDescription" ng-model="tokenInfos[cHOTID_clicked].description" class="form-control" placeholder="Parcel description" required>
+                  <small class="form-text text-muted">Enter a description for your parcel.</small>
+
+                  <br>
+                  <button type="button" class="btn btn-outline-info btn-lg" ng-click="saveDescription()">Save new description</button>
+                </div>
+
+                <hr>
+
+                <div class="form-group text-center">
+                  <input class="form-control" type="text" name="parcelDescription" ng-model="tokenInfos[cHOTID_clicked].link" class="form-control" placeholder="Parcel link" required>
+                  <small class="form-text text-muted">Enter a link for your parcel.</small>
+                  <br>
+                  <button type="button" class="btn btn-outline-primary btn-lg" ng-click="saveLink()">Save new link</button>
+                </div>
+              </form>
+            </p>
+
+            <p ng-if="tokenInfos[cHOTID_clicked] != null && tokenInfos[cHOTID_clicked].owner != currentAccount">
+              <span ng-if="tokenInfos[cHOTID_clicked].description.length > 0">Description: "<span class="text-muted">{{tokenInfos[cHOTID_clicked].description}}</span>"</span>
+
+              <br>
+
+              <span ng-if="tokenInfos[cHOTID_clicked].link.length > 0">Link: "<span class="text-muted">{{tokenInfos[cHOTID_clicked].link}}</span>"</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success btn-lg btn-block" ng-if="tokenInfos[cHOTID_clicked] == null" ng-click="buyToken()">Acquire parcel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+
+    <!-- Bootstrap 4 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Angular JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+
+    <!-- IPFS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+
+    <!-- Big Number -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/6.0.0/bignumber.min.js"></script>
+
+    <!-- Color picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+
+    <!-- Smart contract interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@0.20.6/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/truffle-contract@3.0.4/dist/truffle-contract.min.js"></script>
+    <script src="./JS/angularApp.js"></script>
+    <script src="./JS/app.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  </body>
+</html>
