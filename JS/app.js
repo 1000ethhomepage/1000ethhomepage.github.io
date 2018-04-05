@@ -18,6 +18,8 @@ function initWeb3() {
 var scope;
 
 function initOneMillionPixelsContract () {
+  // the file OneMillionPixels.json contains the ABI of the smart contract, and the address 
+  // of the deployed instance of it 
   $.getJSON('OneMillionPixels.json', function(data) {
     // Get the necessary contract artifact file and instantiate it with truffle-contract
     OMPContract = TruffleContract(data);
